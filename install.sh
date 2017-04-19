@@ -13,19 +13,19 @@ files="bashrc vimrc"    # list of files/folders to symlink in homedir
 ##########
 
 # create dotfiles_old in homedir
-echo "Creating $olddir for backup of any existing dotfiles in ~"
+echo "Creando $olddir para respaldar cualquier dotfile en ~"
 mkdir -p $olddir
-echo "...done"
+echo "...terminado"
 
 # change to the dotfiles directory
-echo "Changing to the $dir directory"
+echo "Cambiando al directorio $dir"
 cd $dir
-echo "...done"
+echo "...terminado"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in $files; do
-    echo "Moving any existing dotfiles from ~ to $olddir"
+    echo "Moviendo el archivo $file de ~ a $olddir"
     mv ~/.$file ~/dotfiles_old/
-    echo "Creating symlink to $file in home directory."
+    echo "Creando enlace simbolico a $file en el directorio home."
     ln -s $dir/$file ~/.$file
 done
